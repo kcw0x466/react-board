@@ -1,7 +1,19 @@
 import Table from 'react-bootstrap/Table';
 import PostRow from './PostRow';
+import { useEffect } from 'react';
+import axios from 'axios';
 
-function ContentTable() {
+function PostTable() {
+  
+  // CORS 문제로 API 호출 안됨
+  // useEffect(() => {
+  //   console.log("Hello");
+  //   axios.get('http://211.203.233.87:8081/api/posts').then((res) => {
+  //     console.log(res);
+  //   });
+      
+  // });
+
   return (
     <Table size="sm">
       <thead align="center">
@@ -20,4 +32,4 @@ function ContentTable() {
   );
 }
 
-export default ContentTable;
+export default PostTable;
