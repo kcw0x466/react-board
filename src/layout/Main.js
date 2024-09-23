@@ -21,7 +21,7 @@ function Main() {
                 <BrowserRouter>
                     <Routes>
                         <Route path="/" element={<Home/>} />
-                        <Route path="/post" element={<Post/>} />
+                        <Route path="/write" element={<Post/>} />
                     </Routes>
                 </BrowserRouter>
             </Container>            
