@@ -71,7 +71,6 @@ function ContentTable() {
         <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
         <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
         <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="Git Test" nickname="애플소다" createdAt="2024-09-20" />
       </tbody>
     </Table>
   );
