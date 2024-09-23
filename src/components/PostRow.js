@@ -1,4 +1,4 @@
-function PostRow(props) {
+function PostTable(props) {
     return (
         <tr>
           <td align="center">{props.num}</td>
@@ -11,4 +11,4 @@ function PostRow(props) {
     );
 }
 
-export default PostRow;
+export default PostTable;
