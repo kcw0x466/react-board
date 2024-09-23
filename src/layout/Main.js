@@ -3,6 +3,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from '../routes/Home';
+import Post from '../routes/Post';
 
 function Main() {
     return (
@@ -17,9 +18,12 @@ function Main() {
                     </Col>
                     <Col xs={1} />
                 </Row>
-                
-                <Home/>
-                
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/" element={<Home/>} />
+                        <Route path="/post" element={<Post/>} />
+                    </Routes>
+                </BrowserRouter>
             </Container>            
         </div>
     );

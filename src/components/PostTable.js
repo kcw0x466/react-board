@@ -13,63 +13,7 @@ function ContentTable() {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td align="center">1</td>
-          <td>게시글 작성 테스트</td>
-          <td align="center">kcw0x466</td>
-          <td align="center">2024-09-21</td>
-        </tr>
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
+        <PostRow num="1" title="test" nickname="kcw0x466" createdAt="2024-09-20" />
         <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
       </tbody>
     </Table>
