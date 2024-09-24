@@ -2,6 +2,7 @@ import Table from 'react-bootstrap/Table';
 import PostRow from './PostRow';
 import { useEffect } from 'react';
 import axios from 'axios';
+import posts from '../data/PostData'
 
 function PostTable() {
   
@@ -14,6 +15,21 @@ function PostTable() {
       
   // });
 
+  const rendering = () => {
+    const result = [];
+    for(let i = 0; i < posts.length; i++){
+      result.push(<PostRow 
+        num={i + 1} 
+        id={posts[i].id}
+        title={posts[i].title} 
+        nickname={posts[i].nickname} 
+        createdAt={posts[i].createdAt} 
+      />);
+    }
+    return result;
+  };  
+
+
   return (
     <Table size="sm">
       <thead align="center">
@@ -25,8 +41,7 @@ function PostTable() {
         </tr>
       </thead>
       <tbody>
-        <PostRow num="1" title="test" nickname="kcw0x466" createdAt="2024-09-20" />
-        <PostRow num="2" title="test" nickname="애플소다" createdAt="2024-09-20" />
+        {rendering()}
       </tbody>
     </Table>
   );

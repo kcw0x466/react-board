@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
+
 function PostTable(props) {
     return (
         <tr>
           <td align="center">{props.num}</td>
           <td>
-            <a href="#">{props.title}</a>
+            <Link to={`/post/${props.id}`}>{props.title}</Link>
           </td>
           <td align="center">{props.nickname}</td>
           <td align="center">{props.createdAt}</td>

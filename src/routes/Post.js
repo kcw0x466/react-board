@@ -2,7 +2,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import TextEditor from '../components/TextEditor';
 
-function Post() {
+function Post(props) {
     return(
         <>
             <Row>
@@ -13,7 +13,7 @@ function Post() {
             <Row>
                 <Col xs={1} />
                 <Col lg={10}>
-                    <TextEditor />
+                    <TextEditor mode={props.mode} />
                 </Col>
                 <Col xs={1} />
             </Row>
