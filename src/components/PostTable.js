@@ -1,29 +1,28 @@
 import Table from 'react-bootstrap/Table';
 import PostRow from './PostRow';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
-import posts from '../data/PostData'
+import moment from 'moment';
 
 function PostTable() {
   
-  // CORS 문제로 API 호출 안됨
-  // useEffect(() => {
-  //   console.log("Hello");
-  //   axios.get('http://211.203.233.87:8081/api/posts').then((res) => {
-  //     console.log(res);
-  //   });
-      
-  // });
+  const [Posts, setPosts] = useState([]);
+  
+  useEffect(() => {
+    axios.get('http://localhost:8080/api/posts').then((res) => {
+      setPosts(res.data)
+    });  
+  }, []);
 
   const rendering = () => {
     const result = [];
-    for(let i = 0; i < posts.length; i++){
+    for(let i = 0; i < Posts.length; i++){
       result.push(<PostRow 
         num={i + 1} 
-        id={posts[i].id}
-        title={posts[i].title} 
-        nickname={posts[i].nickname} 
-        createdAt={posts[i].createdAt} 
+        id={Posts[i].id}
+        title={Posts[i].title} 
+        nickname={Posts[i].nickname} 
+        createdAt={moment(Posts[i].createdAt).format('YYYY-MM-DD HH:mm:ss')} 
       />);
     }
     return result;
@@ -37,7 +36,7 @@ function PostTable() {
           <th align="center" width="5%">번호</th>
           <th align="center" width="60%">제목</th>
           <th align="center" width="10%">작성자</th>
-          <th align="center" width="10%">날짜</th>
+          <th align="center" width="20%">날짜</th>
         </tr>
       </thead>
       <tbody>

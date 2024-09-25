@@ -3,13 +3,16 @@ import Button from 'react-bootstrap/Button';
 import { Col, Row } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import posts from '../data/PostData'
+import axios from 'axios';
+import moment from 'moment';
+
 
 function TextEditor(props) {
     const [EnableDel, setEnableDel] = useState();
     const [EnableEdit, setEnableEdit] = useState();
     const [EnableSubmit, setEnableSubmit] = useState();
     const [OnlyRead, setOnlyRead] = useState();
+    const [EditModeBtn, setEditModeBtn] = useState();
     const [InputPassword, setInputPassword] = useState("");
     const [Post, setPost] = useState({
         "id": "",
@@ -33,29 +36,48 @@ function TextEditor(props) {
             setEnableDel(false);
             setEnableEdit(false);
             setEnableSubmit(true);
+            setEditModeBtn(false);
             setOnlyRead(false);
         } 
         else if (mode == "edit") {
             setEnableDel(true);
             setEnableEdit(true);
             setEnableSubmit(false);
+            setEditModeBtn(false);
             setOnlyRead(false);
         }
         else if (mode == "read") {
             setEnableDel(false);
             setEnableEdit(false);
             setEnableSubmit(false);
+            setEditModeBtn(true);
             setOnlyRead(true);
         }
     };
 
     const loadPost = () => {
-        for (let i = 0; i < posts.length; i++) {
-          if (posts[i].id == params.id) {
-            setPost(posts[i]);  
-          }
-        }
+        axios.get(`http://localhost:8080/api/posts/${params.id}`).then((res) => {
+            setPost(res.data);
+        });   
     };
+
+    const uploadPost = () => {
+        if (InputPassword.length < 1) {
+            alert("비밀번호를 입력해주세요.");
+            return;
+        }
+
+        setPost({...Post, "password": InputPassword});
+        axios.post(`http://localhost:8080/api/posts`, Post,{
+            headers: { 'content-type': 'application/json' }
+        });  
+        console.log(Post);
+        goToHome();
+    };
+
+    const updatePost = () => {};
+
+    const deletePost = () => {};
 
     const chkPassword = () => {
         if (InputPassword.length < 1) {
@@ -69,7 +91,6 @@ function TextEditor(props) {
         }
 
         if (Post.password == InputPassword) {
-            console.log("맞네");
             return true;
         }
     };
@@ -98,7 +119,6 @@ function TextEditor(props) {
     };
 
     useEffect(() => {
-        console.log("useEffect");
         modeController(props.mode);
         if(props.mode == "read") {
             loadPost();
@@ -115,7 +135,7 @@ function TextEditor(props) {
                     <Form.Control type="password" placeholder="비밀번호" onChange={handleInputPassword} />
                 </Col>
                 <Col xs={4}>
-                    {!EnableEdit && (<Button onClick={setEditMode}>수정 모드</Button>)}
+                    {EditModeBtn && (<Button onClick={setEditMode}>수정 모드</Button>)}
                 </Col>
             </Row>
             <Form.Group className="mb-3" controlId="">
@@ -123,7 +143,7 @@ function TextEditor(props) {
                 <Form.Control type="text" placeholder="제목을 입력해 주세요." readOnly={OnlyRead} value={Post.title} onChange={handleInputTitle}/>
             </Form.Group>
             <Form.Group className="mb-3" controlId="">
-                <Form.Label>{(props.mode == "read") && ("작성일: " + Post.createdAt)}</Form.Label>
+                <Form.Label>{(props.mode == "read") && ("작성일: " + moment(Post.createdAt).format('YYYY-MM-DD HH:mm:ss'))}</Form.Label>
                 <Form.Control as="textarea" rows={15} placeholder="내용을 입력해 주세요." readOnly={OnlyRead} value={Post.content} onChange={handleInputContent}/>
             </Form.Group>
             <Form.Group controlId="formFileMultiple" className="mb-3">
@@ -146,7 +166,7 @@ function TextEditor(props) {
                         수정
                     </Button>)}
                     {' '}
-                    {EnableSubmit && (<Button variant="primary" type="button">
+                    {EnableSubmit && (<Button variant="primary" type="button" onClick={uploadPost}>
                         등록
                     </Button>)}  
                 </Col>

@@ -23,7 +23,6 @@ const posts = [
         "content": "Hello Java",
         "nickname": "Java",
         "password": "123",
-        "createdAt": "2024-09-24",
         "locked": false
     },
     {
