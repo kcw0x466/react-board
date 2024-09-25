@@ -33,11 +33,13 @@ function TextEditor(props) {
             setEnableDel(false);
             setEnableEdit(false);
             setEnableSubmit(true);
+            setOnlyRead(false);
         } 
         else if (mode == "edit") {
             setEnableDel(true);
             setEnableEdit(true);
             setEnableSubmit(false);
+            setOnlyRead(false);
         }
         else if (mode == "read") {
             setEnableDel(false);
@@ -76,28 +78,38 @@ function TextEditor(props) {
         setInputPassword(e.target.value);
     };
 
+    const handleInputTitle = (e) => {
+        setPost({...Post, "title": e.target.value});
+    };
+
+    const handleInputNickname = (e) => {
+        setPost({...Post, "nickname": e.target.value});
+    };
+
+    const handleInputContent = (e) => {
+        setPost({...Post, "content": e.target.value});
+    };
+
     //버그
     const setEditMode = () => {
         if (chkPassword()) {
-            // modeController("edit");
-            setEnableDel(true);
-            setEnableEdit(true);
-            setEnableSubmit(false);
+            modeController("edit");
         }
     };
 
     useEffect(() => {
+        console.log("useEffect");
         modeController(props.mode);
         if(props.mode == "read") {
             loadPost();
         }
-    }, [modeController, loadPost]);
+    }, []);
 
     return(
         <Form>
             <Row>
                 <Col>
-                    <Form.Control placeholder="작성자" readOnly={OnlyRead} value={Post.nickname} />
+                    <Form.Control placeholder="작성자" readOnly={OnlyRead} value={Post.nickname} onChange={handleInputNickname} />
                 </Col>
                 <Col>
                     <Form.Control type="password" placeholder="비밀번호" onChange={handleInputPassword} />
@@ -108,11 +120,11 @@ function TextEditor(props) {
             </Row>
             <Form.Group className="mb-3" controlId="">
                 <Form.Label></Form.Label>
-                <Form.Control type="text" placeholder="제목을 입력해 주세요." readOnly={OnlyRead} value={Post.title} />
+                <Form.Control type="text" placeholder="제목을 입력해 주세요." readOnly={OnlyRead} value={Post.title} onChange={handleInputTitle}/>
             </Form.Group>
             <Form.Group className="mb-3" controlId="">
-                <Form.Label>{OnlyRead && ("작성일: " + Post.createdAt)}</Form.Label>
-                <Form.Control as="textarea" rows={15} placeholder="내용을 입력해 주세요." readOnly={OnlyRead} value={Post.content} />
+                <Form.Label>{(props.mode == "read") && ("작성일: " + Post.createdAt)}</Form.Label>
+                <Form.Control as="textarea" rows={15} placeholder="내용을 입력해 주세요." readOnly={OnlyRead} value={Post.content} onChange={handleInputContent}/>
             </Form.Group>
             <Form.Group controlId="formFileMultiple" className="mb-3">
                 <Form.Label>첨부 파일</Form.Label>

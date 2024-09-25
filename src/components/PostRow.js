@@ -5,7 +5,7 @@ function PostTable(props) {
         <tr>
           <td align="center">{props.num}</td>
           <td>
-            <Link to={`/post/${props.id}`}>{props.title}</Link>
+            <Link to={`/post/${props.id}`} style={{textDecoration: "none", color: "black"}}>{props.title}</Link>
           </td>
           <td align="center">{props.nickname}</td>
           <td align="center">{props.createdAt}</td>
