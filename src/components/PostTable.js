@@ -10,7 +10,7 @@ function PostTable() {
   
   useEffect(() => {
     axios.get('http://localhost:8080/api/posts').then((res) => {
-      setPosts(res.data)
+      setPosts(res.data);
     });  
   }, []);
 
